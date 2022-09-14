@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">UniRemote</string>
-    <string name="on_off">On/Off</string>
+    <string name="send_to">Send instructions to:</string>
 </resources>
