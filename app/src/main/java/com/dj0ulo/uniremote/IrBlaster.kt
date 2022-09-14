@@ -88,7 +88,7 @@ class IrBlaster(private val mAct: MainActivity) {
 
                 for (i in 0 until kotlin.math.abs(amount)) {
                     val plus1 = if (evenVolume) 1 else 0
-                    val suffix = if (i + plus1 % 2 == 0) "" else "2"
+                    val suffix = if ((i + plus1) % 2 == 0) "" else "2"
                     transmit(commands[code + suffix])
                 }
             } catch (e: NumberFormatException) {
