@@ -58,12 +58,16 @@ class IrBlaster(private val mAct: MainActivity) {
         lastCommand = command.code.toLowerCase(Locale.ROOT)
         transmit(command.freq, command.signal)
     }
+
     fun transmit(msg: String) {
         val ss = msg.split(";")
-        val instruction = ss[0]
+        transmit(ss[0], ss[1]);
+    }
+    fun transmit(instruction: String, displayText: String?) {
         Log.i(MainActivity().TAG, "Received instruction : $instruction")
         val lowInst = instruction.toLowerCase(Locale.ROOT)
-        mAct.runOnUiThread(Runnable { mAct.bounceCommand(ss[1]) })
+        if(displayText != null)
+            mAct.runOnUiThread { mAct.bounceCommand(displayText) }
 
         if (lowInst.startsWith("volume")) {
             try {

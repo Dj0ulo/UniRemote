@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.*
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -54,5 +55,9 @@ open class MainActivity : AppCompatActivity() {
     private fun runAnimation(view: View) {
         view.clearAnimation()
         view.startAnimation(animCommand)
+    }
+    fun clickOnControllerButton(button: View){
+        if (button.tag != null)
+            irb.transmit(button.tag.toString())
     }
 }

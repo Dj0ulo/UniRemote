@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="clickOnControllerButton"
     tools:context=".MainActivity">
 
     <TextView
@@ -23,9 +24,9 @@
         android:layout_marginTop="16dp"
         android:autofillHints=""
         android:editable="false"
-        android:textIsSelectable="true"
         android:ems="10"
         android:inputType="none"
+        android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -35,12 +36,41 @@
         android:id="@+id/command"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
         android:text="⚡"
+        android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mp3" />
+
+    <Button
+        android:id="@+id/power"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/round_button"
+        android:onClick="clickOnControllerButton"
+        android:tag="Power;⚡"
+        android:text="⚡"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/link" />
+
+    <Button
+        android:id="@+id/mp3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_button"
+        android:onClick="clickOnControllerButton"
+        android:tag="Mp3;🎵"
+        android:text="🎵"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/power"
+        app:layout_constraintStart_toStartOf="@+id/power"
+        app:layout_constraintTop_toBottomOf="@+id/power" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

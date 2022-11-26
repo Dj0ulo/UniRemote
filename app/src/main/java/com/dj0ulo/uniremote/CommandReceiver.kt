@@ -53,7 +53,7 @@ class CommandReceiver (private val callback: (String) -> Unit): Runnable{
     }
     companion object {
         private val address = getLocalIpAddress() //"255.255.255.255"
-        private val port = 6510;
+        private const val port = 6510;
         fun getLocalIpAddress(): String {
             try {
                 val en = NetworkInterface.getNetworkInterfaces()
@@ -62,9 +62,8 @@ class CommandReceiver (private val callback: (String) -> Unit): Runnable{
                     val enumIpAddr = intf.inetAddresses
                     while (enumIpAddr.hasMoreElements()) {
                         val inetAddress: InetAddress = enumIpAddr.nextElement()
-                        if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address) {
+                        if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address)
                             return inetAddress.hostAddress
-                        }
                     }
                 }
             } catch (ex: SocketException) {
