@@ -35,7 +35,7 @@ class IrBlaster(private val mAct: MainActivity) {
             while (reader.readLine().also { line = it ?: "" } != null) {
                 val ss = line.split(";").toTypedArray()
                 val code = ss[2]
-                val freq = ss[5].toInt();
+                val freq = ss[5].toInt()
                 val signal = (ss.last().split(",").map { it.trim().toInt() }).toIntArray()
                 commands[code.toLowerCase(Locale.ROOT)] = Command(code, freq, signal)
             }
@@ -61,7 +61,12 @@ class IrBlaster(private val mAct: MainActivity) {
 
     fun transmit(msg: String) {
         val ss = msg.split(";")
-        transmit(ss[0], ss[1]);
+        if (ss[0].toIntOrNull() != null) {
+            Log.i(MainActivity().TAG, "Transmitting at frequency : ${ss[0].toInt()}")
+            transmit(ss[0].toInt(), ss[1].split("[,\\s]".toRegex()).map { it.toInt(16) }.toIntArray())
+        } else {
+            transmit(ss[0], ss[1])
+        }
     }
     fun transmit(instruction: String, displayText: String?) {
         Log.i(MainActivity().TAG, "Received instruction : $instruction")
