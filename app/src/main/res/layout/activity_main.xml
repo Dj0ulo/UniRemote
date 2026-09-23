@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="clickOnControllerButton"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/send_to"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,16 +20,201 @@
         android:id="@+id/link"
         android:layout_width="243dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:autofillHints=""
-        android:editable="false"
         android:ems="10"
+        android:focusable="false"
         android:inputType="none"
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:ignore="LabelFor" />
+
+    <ScrollView
+        android:id="@+id/keypad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/link">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Sources -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/power"
+                    style="@style/RemoteButton"
+                    android:tag="Power;⚡"
+                    android:text="⚡" />
+
+                <Button
+                    android:id="@+id/mp3"
+                    style="@style/RemoteButton"
+                    android:tag="Mp3;🎵"
+                    android:text="🎵" />
+
+                <Button
+                    android:id="@+id/radio"
+                    style="@style/RemoteButton"
+                    android:tag="Radio;📻"
+                    android:text="📻" />
+
+                <Button
+                    android:id="@+id/aux"
+                    style="@style/RemoteButton"
+                    android:tag="AUX;🔌"
+                    android:text="🔌" />
+            </LinearLayout>
+
+            <!-- Cursor pad -->
+            <Button
+                android:id="@+id/up"
+                style="@style/RemoteButton"
+                android:tag="Up;▲"
+                android:text="▲" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/left"
+                    style="@style/RemoteButton"
+                    android:tag="Left;◀"
+                    android:text="◀" />
+
+                <Button
+                    android:id="@+id/ok"
+                    style="@style/RemoteButton"
+                    android:tag="Ok;OK"
+                    android:text="OK"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/right"
+                    style="@style/RemoteButton"
+                    android:tag="Right;▶"
+                    android:text="▶" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/down"
+                style="@style/RemoteButton"
+                android:tag="Down;▼"
+                android:text="▼" />
+
+            <!-- Menus -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/disc_menu"
+                    style="@style/RemoteButton"
+                    android:tag="Disc_Menu;☰"
+                    android:text="☰" />
+
+                <Button
+                    android:id="@+id/subtitle"
+                    style="@style/RemoteButton"
+                    android:tag="Subtitle;💬"
+                    android:text="💬" />
+
+                <Button
+                    android:id="@+id/program"
+                    style="@style/RemoteButton"
+                    android:tag="Program;🔁"
+                    android:text="🔁" />
+            </LinearLayout>
+
+            <!-- Transport -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/previous"
+                    style="@style/RemoteButton"
+                    android:tag="Previous;⏮"
+                    android:text="⏮" />
+
+                <Button
+                    android:id="@+id/play"
+                    style="@style/RemoteButton"
+                    android:tag="Play;▶️"
+                    android:text="▶️" />
+
+                <Button
+                    android:id="@+id/pause"
+                    style="@style/RemoteButton"
+                    android:tag="Pause;⏸"
+                    android:text="⏸" />
+
+                <Button
+                    android:id="@+id/stop"
+                    style="@style/RemoteButton"
+                    android:tag="Stop;⏹"
+                    android:text="⏹" />
+
+                <Button
+                    android:id="@+id/next"
+                    style="@style/RemoteButton"
+                    android:tag="Next;⏭"
+                    android:text="⏭" />
+            </LinearLayout>
+
+            <!-- Sound -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/volume_down"
+                    style="@style/RemoteButton"
+                    android:tag="volume-1;🔉"
+                    android:text="🔉" />
+
+                <Button
+                    android:id="@+id/volume_up"
+                    style="@style/RemoteButton"
+                    android:tag="volume1;🔊"
+                    android:text="🔊" />
+
+                <Button
+                    android:id="@+id/mute"
+                    style="@style/RemoteButton"
+                    android:tag="Mute;🔇"
+                    android:text="🔇" />
+
+                <Button
+                    android:id="@+id/surround"
+                    style="@style/RemoteButton"
+                    android:tag="Surround;🎧"
+                    android:text="🎧" />
+
+                <Button
+                    android:id="@+id/sound"
+                    style="@style/RemoteButton"
+                    android:tag="Sound;🎚"
+                    android:text="🎚" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/command"
@@ -41,36 +225,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mp3" />
-
-    <Button
-        android:id="@+id/power"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="116dp"
-        android:background="@drawable/round_button"
-        android:onClick="clickOnControllerButton"
-        android:tag="Power;⚡"
-        android:text="⚡"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/link" />
-
-    <Button
-        android:id="@+id/mp3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/round_button"
-        android:onClick="clickOnControllerButton"
-        android:tag="Mp3;🎵"
-        android:text="🎵"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="@+id/power"
-        app:layout_constraintStart_toStartOf="@+id/power"
-        app:layout_constraintTop_toBottomOf="@+id/power" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -30,7 +30,7 @@ class CommandReceiver (private val callback: (String) -> Unit): Runnable{
                 socket.receive(packet)
                 this.callback(strFromBytes(packet.data))
             } catch (e: Exception) {
-                Log.e(MainActivity().TAG, "[UDP] Exception : $e")
+                Log.e(MainActivity.TAG, "[UDP] Exception : $e")
                 e.printStackTrace()
             } finally {
                 socket?.close()
@@ -44,7 +44,10 @@ class CommandReceiver (private val callback: (String) -> Unit): Runnable{
             }
             routing {
                 put{
-                    val instruction = call.parameters["msg"]?:""
+                    // Query parameters do not reach call.parameters here, which
+                    // left every request silently blasting nothing.
+                    val instruction = call.request.queryParameters["msg"]
+                        ?: call.parameters["msg"] ?: ""
                     call.respond(mapOf("message" to "ok"))
                     callback(instruction)
                 }
